@@ -22,6 +22,7 @@ Project is created with:
 * Python Version 3
 
 ## Python modules
+Use pip3 to install all these modules
 vcgencmd
 requests
 json
