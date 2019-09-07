@@ -3,7 +3,7 @@
 * [Openweather API setup](#API-setup)
 * [Technologies](#technologies)
 * [Python modules](#Dependency)
-* [Informations Displayed](#Displayed info)
+* [Informations Displayed](#Displayed-info)
 * [Setup](#setup)
 
 ## General info
