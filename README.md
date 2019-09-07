@@ -1,8 +1,8 @@
 ## Table of contents
 * [General info](#general-info)
-* [Openweather API setup] (#API-setup)
+* [Openweather API setup](#API-setup)
 * [Technologies](#technologies)
-* [Python modules] (#Dependency)
+* [Python modules](#Dependency)
 * [Setup](#setup)
 
 ## General info
