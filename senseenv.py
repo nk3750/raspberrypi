@@ -25,7 +25,7 @@ while True:
   CPUc = round(CPUc,1)
   t_calibrated=t-((CPUc-t)/5.466)
   t_calibrated=round(t_calibrated,1)
-  r = requests.get('http://api.openweathermap.org/data/2.5/weather?id=5134086&APPID=616ffe1395e0e036d47b0e5982b5bc80')
+  r = requests.get('http://api.openweathermap.org/data/2.5/weather?id={your city id}&APPID={your API key}')
   result=r.json() 
   main=result["weather"][0]["main"]
   desc=result["weather"][0]["description"]
