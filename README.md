@@ -3,6 +3,7 @@
 * [Openweather API setup](#API-setup)
 * [Technologies](#technologies)
 * [Python modules](#Dependency)
+* [Informations Displayed](#Displayed info)
 * [Setup](#setup)
 
 ## General info
@@ -38,6 +39,20 @@ PIL
 
 resizeimage
 	
+## Informations Displayed
+
+1) Current weather condition at your location
+
+2) Detailed weather condition at your location
+
+3) Weather Icon corresponding to the current conditions
+
+4) Room Temperature
+
+5) Pressure
+
+6) Humidity
+
 ## Setup
 git clone (repo address)
 
