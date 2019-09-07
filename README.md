@@ -24,11 +24,17 @@ Project is created with:
 ## Python modules
 Use pip3 to install all these modules
 vcgencmd
+
 requests
+
 json
+
 time
+
 sense_hat
+
 PIL
+
 resizeimage
 	
 ## Setup
