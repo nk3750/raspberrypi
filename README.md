@@ -4,6 +4,7 @@
 * [Technologies](#technologies)
 * [Python modules](#Dependency)
 * [Informations Displayed](#Displayed-info)
+* [Joystick Action](#Joystick-up-down-action)
 * [Setup](#setup)
 
 ## General info
@@ -49,10 +50,12 @@ resizeimage
 
 4) Room Temperature
 
-5) Pressure
-
 6) Humidity
 
+The temperature and Humidity are displayed in green if Humidity is greater than 30(Really good for your skin) and Temperature is between 19-26 degree Celcius
+
+## Joystick Action
+Pressing the joystick down puts the Sensehat display in lowlight mode which is suitable in the dark, pressing it Up again puts it in the normal mode.
 ## Setup
 git clone (repo address)
 
