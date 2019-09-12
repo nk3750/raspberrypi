@@ -3,14 +3,22 @@ import vcgencmd
 import requests
 import json
 import time
+import datetime
 from random import randint
 from sense_hat import SenseHat
 from PIL import Image
 sense = SenseHat()
 from resizeimage import resizeimage
 # Define the colours red and green
-red = (randint(0,255), 0, 0)
+red = (255, 0, 0)
 green = (0, 255, 0)
+sense.set_rotation(180)
+
+def lowLighttrue():
+      sense.low_light = True 
+
+def lowLightfalse():
+      sense.low_light = False
 
 while True:
 
@@ -23,9 +31,7 @@ while True:
   h = round(h, 1)
 
   CPUc = round(CPUc,1)
-  t_calibrated=t-((CPUc-t)/5.466)
-  t_calibrated=round(t_calibrated,1)
-  r = requests.get('http://api.openweathermap.org/data/2.5/weather?id={your city id}&APPID={your API key}')
+  r = requests.get('http://api.openweathermap.org/data/2.5/weather?id=5134086&APPID=616ffe1395e0e036d47b0e5982b5bc80')
   result=r.json() 
   main=result["weather"][0]["main"]
   desc=result["weather"][0]["description"]
@@ -37,19 +43,28 @@ while True:
     with Image.open(f) as image:
         cover = resizeimage.resize_cover(image, [8,8])
         cover.save('icon.png', image.format)
-  room_conditions = "Temperature Inside: " + str(t_calibrated) + " Pressure: " + str(p) + " Humidity: " + str(h)
-  message=main+" --> "+desc
-  if t_calibrated > 18.3 and t_calibrated < 26.7:
-    bg = green
+  room_conditions = " Humidity: " + str(h) +" Temp: " +str(t)
+  message=main.upper()+" --> "+desc.upper()
+  if h > 30 and (t>19 and t<26) :
+    tg = green
+    
   else:
-    num1 = randint(0, 255)
-    num2 = randint(0, 255)
-    num3 = randint(0, 255)
-    color = (num1, num2, num3)  
-    bg = color 
+    tg=red
+  
+  num1 = randint(0, 255)
+  num2 = randint(0, 255)
+  num3 = randint(0, 255)
+  color = (num1, num2, num3)  
+  bg = color 
   
   # Display the scrolling message
   sense.show_message(message, scroll_speed=0.05, text_colour=bg)
   sense.load_image('icon.png') 
   time.sleep(5)
-  sense.show_message(room_conditions,scroll_speed=0.05, text_colour=bg)
+  sense.show_message(room_conditions,scroll_speed=0.05, text_colour=tg)
+  
+  now = datetime.datetime.now()
+  sense.show_message("Time "+str(now.hour)+":"+str(now.minute),scroll_speed=0.05, text_colour=bg)
+  sense.stick.direction_up = lowLighttrue
+  sense.stick.direction_down = lowLightfalse
+
